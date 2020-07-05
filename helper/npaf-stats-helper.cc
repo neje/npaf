@@ -22,7 +22,7 @@
  * Adapted from OnOffHelper and StatsSinkHelper by Mathieu Lacage <mathieu.lacage@sophia.inria.fr
  */
  
-#include "ns3/stats-helper.h"
+#include "ns3/npaf-stats-helper.h"
 #include "ns3/inet-socket-address.h"
 #include "ns3/packet-socket-address.h"
 #include "ns3/string.h"
@@ -30,11 +30,13 @@
 #include "ns3/uinteger.h"
 #include "ns3/names.h"
 #include "ns3/random-variable-stream.h"
-#include "ns3/stats-packet-source.h"
-#include "ns3/stats-packet-sink.h"
+#include "ns3/npaf-stats-packet-source.h"
+#include "ns3/npaf-stats-packet-sink.h"
 #include "ns3/string.h"
 
 namespace ns3 {
+
+namespace npaf {
 
 /* ***************************************************************** */
 // Stats Packet Source Helper
@@ -169,5 +171,6 @@ StatsSinkHelper::InstallPriv (Ptr<Node> node) const
   return app;
 }
 
+} // namespace npaf
 
 } // namespace ns3

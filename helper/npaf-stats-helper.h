@@ -21,8 +21,8 @@
  *
  * Adapted from OnOffHelper and StatsSinkHelper by Mathieu Lacage <mathieu.lacage@sophia.inria.fr
  */
-#ifndef STATS_HELPER_H
-#define STATS_HELPER_H
+#ifndef NPAF_STATS_HELPER_H
+#define NPAF_STATS_HELPER_H
 
 #include <stdint.h>
 #include <string>
@@ -32,19 +32,19 @@
 #include "ns3/net-device.h"
 #include "ns3/node-container.h"
 #include "ns3/application-container.h"
-#include "ns3/stats-packet-source.h"
-#include "ns3/stats-packet-sink.h"
+#include "ns3/npaf-stats-packet-source.h"
+#include "ns3/npaf-stats-packet-sink.h"
 
 
 namespace ns3 {
 
+class DataRate;
+
+namespace npaf {
+
 /* ***************************************************************** */
 // Stats Packet Source Helper
 /* ***************************************************************** */
-
-
-class DataRate;
-
 /**
  * \ingroup onoff
  * \brief A helper to make it easier to instantiate an ns3::StatsPacketSource 
@@ -211,9 +211,9 @@ private:
   ObjectFactory m_factory; //!< Object factory.
 };
 
-
+} // namespace npaf
 
 } // namespace ns3
 
-#endif /* STATS_HELPER_H */
+#endif /* NPAF_STATS_HELPER_H */
 

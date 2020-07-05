@@ -35,13 +35,15 @@
 #include "ns3/packet.h"
 #include "ns3/trace-source-accessor.h"
 #include "ns3/udp-socket-factory.h"
-#include "ns3/stats-packet-sink.h"
+#include "ns3/npaf-stats-packet-sink.h"
 #include "ns3/boolean.h"
 #include "ns3/string.h"
 
 namespace ns3 {
 
-NS_LOG_COMPONENT_DEFINE ("StatsPacketSink");
+NS_LOG_COMPONENT_DEFINE ("NpafStatsPacketSink");
+
+namespace npaf {
 
 NS_OBJECT_ENSURE_REGISTERED (StatsPacketSink);
 
@@ -239,5 +241,7 @@ void StatsPacketSink::HandleAccept (Ptr<Socket> s, const Address& from)
   s->SetRecvCallback (MakeCallback (&StatsPacketSink::HandleRead, this));
   m_socketList.push_back (s);
 }
+
+} // namespace npaf
 
 } // Namespace ns3

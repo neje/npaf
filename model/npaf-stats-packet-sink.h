@@ -22,21 +22,23 @@
  * Adapted from PacketSink by Tom Henderson (tomhend@u.washington.edu)
  */
 
-#ifndef STATS_PACKET_SINK_H
-#define STATS_PACKET_SINK_H
+#ifndef NPAF_STATS_PACKET_SINK_H
+#define NPAF_STATS_PACKET_SINK_H
 
 #include "ns3/application.h"
 #include "ns3/event-id.h"
 #include "ns3/ptr.h"
 #include "ns3/traced-callback.h"
 #include "ns3/address.h"
-#include "ns3/stats-data.h"
+#include "ns3/npaf-stats-data.h"
 
 namespace ns3 {
 
 class Address;
 class Socket;
 class Packet;
+
+namespace npaf {
 
 /**
  * \ingroup applications 
@@ -148,7 +150,9 @@ private:
   //***************************************************************************
 };
 
+} // namespace npaf
+
 } // namespace ns3
 
-#endif /* STATS_PACKET_SINK_H */
+#endif /* NPAF_STATS_PACKET_SINK_H */
 

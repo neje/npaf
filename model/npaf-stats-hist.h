@@ -20,8 +20,8 @@
  * Modified by: Nenad Jevtic (n.jevtic@sf.bg.ac.rs), Marija Malnar (m.malnar@sf.bg.ac.rs), 2018, University of Belgrade
  */
 
-#ifndef NS3_STATS_HIST_H
-#define NS3_STATS_HIST_H
+#ifndef NS3_NPAF_STATS_HIST_H
+#define NS3_NPAF_STATS_HIST_H
 
 #include <vector>
 #include <stdint.h>
@@ -30,6 +30,8 @@
 #include <string>
 
 namespace ns3 {
+
+namespace npaf {
 
 /**
  * \brief Class used to store data and make an histogram of the data frequency.
@@ -179,6 +181,8 @@ private:
   double m_sPrev;        //!< Previous s
 };
 
+} // namespace npaf
+
 } // namespace ns3
 
-#endif /* NS3_HIST_H */
+#endif /* NS3_NPAF_HIST_H */

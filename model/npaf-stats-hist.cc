@@ -25,11 +25,13 @@
 
 #include "ns3/simulator.h"
 #include "ns3/log.h"
-#include "ns3/stats-hist.h"
+#include "ns3/npaf-stats-hist.h"
 
 namespace ns3 {
 
-NS_LOG_COMPONENT_DEFINE ("StatsHist");
+NS_LOG_COMPONENT_DEFINE ("NpafStatsHist");
+
+namespace npaf {
 
 StatsHist::StatsHist (double binWidth, std::string unit) 
   : m_binWidth (binWidth),
@@ -271,6 +273,7 @@ StatsHist::WriteToCsvFile (std::string fileName, double writeBinWidth, std::stri
   out.close ();
 }
 
+} // namespace npaf
 
 } // namespace ns3
 

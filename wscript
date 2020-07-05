@@ -3,12 +3,12 @@
 def build(bld):
     module = bld.create_ns3_module('npaf', ['internet', 'config-store','stats'])
     module.source = [
-        'model/stats-packet-source.cc',
-        'model/stats-packet-sink.cc',
-        'model/stats-header.cc',
-        'model/stats-data.cc',
-        'model/stats-hist.cc',
-        'helper/stats-helper.cc',
+        'model/npaf-stats-packet-source.cc',
+        'model/npaf-stats-packet-sink.cc',
+        'model/npaf-stats-header.cc',
+        'model/npaf-stats-data.cc',
+        'model/npaf-stats-hist.cc',
+        'helper/npaf-stats-helper.cc',
         ]
 
     applications_test = bld.create_ns3_module_test_library('npaf')
@@ -18,12 +18,12 @@ def build(bld):
     headers = bld(features='ns3header')
     headers.module = 'npaf'
     headers.source = [
-        'model/stats-packet-source.h',
-        'model/stats-packet-sink.h',
-        'model/stats-header.h',
-        'model/stats-data.h',
-        'model/stats-hist.h',
-        'helper/stats-helper.h',
+        'model/npaf-stats-packet-source.h',
+        'model/npaf-stats-packet-sink.h',
+        'model/npaf-stats-header.h',
+        'model/npaf-stats-data.h',
+        'model/npaf-stats-hist.h',
+        'helper/npaf-stats-helper.h',
         ]
     
     if (bld.env['ENABLE_EXAMPLES']):

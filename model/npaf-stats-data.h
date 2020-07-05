@@ -20,8 +20,8 @@
  *          Marija Malnar <m.malnar@sf.bg.ac.rs>
  */
 
-#ifndef STATS_DATA_H
-#define STATS_DATA_H
+#ifndef NPAF_STATS_DATA_H
+#define NPAF_STATS_DATA_H
 
 #include <string>
 #include <vector>
@@ -34,13 +34,14 @@
 #include "ns3/address.h"
 #include "ns3/inet-socket-address.h"
 #include "ns3/inet6-socket-address.h"
-#include "ns3/stats-hist.h"
+#include "ns3/npaf-stats-hist.h"
 #include "ns3/log.h"
 #include "ns3/wifi-mode.h"
 #include "ns3/wifi-preamble.h"
 
 namespace ns3 {
-  
+
+namespace npaf {
 
 /*******************************************************
  * Summary & RunSummary
@@ -303,6 +304,8 @@ private:
   double m_histogramResolution;
 };
 
+} // namespace npaf
+
 } // namespace ns3
 
-#endif // STATS_DATA_H
+#endif // NPAF_STATS_DATA_H

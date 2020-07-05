@@ -18,14 +18,17 @@
  * Author: Mathieu Lacage <mathieu.lacage@sophia.inria.fr>
  */
 
-#ifndef STATS_HEADER_H
-#define STATS_HEADER_H
+#ifndef NPAF_STATS_HEADER_H
+#define NPAF_STATS_HEADER_H
 
 #include "ns3/header.h"
 #include "ns3/nstime.h"
 #include "ns3/address.h"
 
 namespace ns3 {
+
+namespace npaf {
+
 /**
  * \ingroup udpclientserver
  *
@@ -106,6 +109,8 @@ private:
   Address m_rxAddress; //!< Receiver IP address (IPv4 or IPv6) and port (InetSocketAddress or Inet6SocketAddress)
 };
 
+} // namespace npaf
+
 } // namespace ns3
 
-#endif /* STATS_HEADER_H */
+#endif /* NPAF_STATS_HEADER_H */

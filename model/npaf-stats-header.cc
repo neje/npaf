@@ -26,11 +26,13 @@
 #include "ns3/ipv6-address.h"
 #include "ns3/inet-socket-address.h"
 #include "ns3/inet6-socket-address.h"
-#include "ns3/stats-header.h"
+#include "ns3/npaf-stats-header.h"
 
 namespace ns3 {
 
-NS_LOG_COMPONENT_DEFINE ("StatsHeader");
+NS_LOG_COMPONENT_DEFINE ("NpafStatsHeader");
+
+namespace npaf {
 
 NS_OBJECT_ENSURE_REGISTERED (StatsHeader);
 
@@ -257,5 +259,7 @@ StatsHeader::Deserialize (Buffer::Iterator start)
     }  
   return GetSerializedSize ();
 }
+
+} // namespace npaf
 
 } // namespace ns3

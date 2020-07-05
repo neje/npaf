@@ -40,13 +40,15 @@
 #include "ns3/udp-socket-factory.h"
 #include "ns3/string.h"
 #include "ns3/pointer.h"
-#include "ns3/stats-packet-source.h"
-#include "ns3/stats-header.h"
+#include "ns3/npaf-stats-packet-source.h"
+#include "ns3/npaf-stats-header.h"
 #include "ns3/boolean.h"
 
 namespace ns3 {
 
-NS_LOG_COMPONENT_DEFINE ("StatsPacketSource");
+NS_LOG_COMPONENT_DEFINE ("NpafStatsPacketSource");
+
+namespace npaf {
 
 NS_OBJECT_ENSURE_REGISTERED (StatsPacketSource);
 
@@ -354,5 +356,6 @@ void StatsPacketSource::ConnectionFailed (Ptr<Socket> socket)
   NS_LOG_FUNCTION (this << socket);
 }
 
+} // namespace npaf
 
 } // Namespace ns3

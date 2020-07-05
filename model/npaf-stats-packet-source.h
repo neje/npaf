@@ -22,8 +22,8 @@
  * Adapted from OnOffApplication by George F. Riley, Georgia Tech, <riley@ece.gatech.edu>
  */
 
-#ifndef STATS_PACKET_SOURCE_H
-#define STATS_PACKET_SOURCE_H
+#ifndef NPAF_STATS_PACKET_SOURCE_H
+#define NPAF_STATS_PACKET_SOURCE_H
 
 #include "ns3/address.h"
 #include "ns3/application.h"
@@ -38,6 +38,8 @@ namespace ns3 {
 class Address;
 class RandomVariableStream;
 class Socket;
+
+namespace npaf {
 
 /**
  * \ingroup applications 
@@ -198,6 +200,8 @@ private:
 
 };
 
+} // namespace npaf
+
 } // namespace ns3
 
-#endif /* STATS_PACKET_SOURCE_H */
+#endif /* NPAF_STATS_PACKET_SOURCE_H */

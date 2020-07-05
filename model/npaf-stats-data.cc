@@ -32,13 +32,15 @@
 #include "ns3/nstime.h"
 #include "ns3/config.h"
 
-#include "ns3/stats-header.h"
-#include "ns3/stats-data.h"
+#include "ns3/npaf-stats-header.h"
+#include "ns3/npaf-stats-data.h"
 
 
 namespace ns3 {
 
-NS_LOG_COMPONENT_DEFINE ("StatsData");
+NS_LOG_COMPONENT_DEFINE ("NpafStatsData");
+
+namespace npaf {
 
 /*******************************************************
  * Summary & RunSummary
@@ -532,5 +534,6 @@ StatsFlows::Clear ()
   m_flowData.clear ();
 }
 
+} // namespace npaf
 
 } // namespace ns3
