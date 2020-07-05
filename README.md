@@ -19,6 +19,6 @@ This utility is evolved from our previous work that is published in several pape
 1. Jevtic, Nenad & Malnar, Marija. (2019). Novel ETX-based metrics for overhead reduction in dynamic ad hoc networks. IEEE Access. PP. 1-1. 10.1109/ACCESS.2019.2936191. 
 2. Malnar, Marija & Jevtic, Nenad. (2020). A Framework for Performance Evaluation of VANETs Using NS-3 Simulator. Promet-Traffic & Transportation. 32. 255-268. 10.7307/ptt.v32i2.3227. 
 3. Bugarcic, Pavle & Jevtic, Nenad & Malnar, Marija. (2019). An Extension of NS-3 Simulator to Support Efficient MANET Performance Analysis. 10.1109/TELSIKS46999.2019.9002027. 
-4. Bugarcic, Pavle & Malnar, Marija & Jevtic, Nenad. (2018). Performance Analysis of MANET Networks Based on AODV Protocol in NS-3 Simulator. 1-4. 10.1109/TELFOR.2018.8612100. 
+4. Bugarcic, Pavle & Malnar, Marija & Jevtic, Nenad. (2019). Modifications of AODV protocol for VANETs: performance analysis in NS-3 simulator. 1-4. 10.1109/TELFOR48224.2019.8971283. 
 5. Bugarcic, Pavle & Malnar, Marija & Jevtic, Nenad. (2018). Performance Analysis of MANET Networks Based on AODV Protocol in NS-3 Simulator. 1-4. 10.1109/TELFOR.2018.8612100. 
 
