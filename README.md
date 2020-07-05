@@ -9,7 +9,7 @@ NPAF framework is an extension of the **ns-3** simulator (https://www.nsnam.org/
 Alternatively, you can clone this repository into **<ns-3_installation_directory>/contrib/** folder using command: git clone https://github.com/neje/npaf.git.
 4. Navigate to your **<ns-3_installation_directory>/** folder. 
 5. Reconfigure your ns-3 installation using **waf** command: ./waf configure (you can use all options you need). 
-6. Compile your ns-3 installation **waf** command: ./waf build (you can use all options you need). 
+6. Compile your ns-3 installation using **waf** command: ./waf build (you can use all options you need). 
 7. Please note that this utility uses **namespace napaf**, so you should not forget to add this namespace to your scratches (for example you can add this line in your C++ code **using namespace npaf;**).
 
 ## Previous work
