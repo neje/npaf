@@ -1,0 +1,17 @@
+NPAF - Network Performance Analysis Framework
+
+***************************************************
+Versin history
+----------------------------------------------------
+Version 2.2
+----------------------------------------------------
++ Files are renamed and name space "npaf" is added due to naming conflict with other software modules by other authors. 
+----------------------------------------------------
+Version 2.1
+----------------------------------------------------
++ Added UTR (Usefull Traffic Ratio) performance indicator. It is calculateted as "size_of_all_application_layer_packets / size_of_all_phy_layer_packets". Tested only with YansWifiPhy.
++ Moved from src/applications to contrib flder for easier maintenace.
+----------------------------------------------------
+
+
+
