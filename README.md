@@ -10,10 +10,13 @@ Alternatively, you can clone this repository into **<ns-3_installation_directory
 4. Navigate to your **<ns-3_installation_directory>/** folder. 
 5. Reconfigure your ns-3 installation using **waf** command: ./waf configure (you can use all options you need). 
 6. Compile your ns-3 installation using **waf** command: ./waf build (you can use all options you need). 
-7. Please note that this utility uses **namespace napaf**, so you should not forget to add this namespace to your scratches (for example you can add this line in your C++ code **using namespace npaf;**).
+
+## Using NPAF
+1. Include npaf module in your scratch files: **#include "ns3/npaf-module.h"**
+2. Please note that this utility uses **namespace napaf**, so you should not forget to add this namespace to your scratches (for example you can add this line in your C++ code **using namespace npaf;** of use prefix **npaf::** with class names).
 
 ## Previous work
-This utility is evolved from our previous work that is published in several papers. In this papers you can find deaper explanations of how this utility works, class diagrams, and several usecase scenarious used to verify functionality.  
+This utility is evolved from our previous work that is published in several papers. In this papers you can find deaper explanations of how this utility works, class diagrams, how the KPIs are calculated, and several usecase scenarious used to verify functionality.  
 
 ### Papers
 1. Jevtic, Nenad & Malnar, Marija. (2019). Novel ETX-based metrics for overhead reduction in dynamic ad hoc networks. IEEE Access. PP. 1-1. 10.1109/ACCESS.2019.2936191. 
