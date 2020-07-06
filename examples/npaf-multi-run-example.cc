@@ -71,7 +71,7 @@ PrintCurrentTime ()
 class RoutingExperiment
 {
 public:
-  RoutingExperiment (uint64_t stopRun = 1, std::string fn = "Net"); // default is only one simulation run
+  RoutingExperiment (uint64_t stopRun = 2, std::string fn = "Net"); // default is only one simulation run
   RoutingExperiment (uint64_t startRun, uint64_t stopRun, std::string fn = "Net");
   npaf::RunSummary Run (int argc, char **argv);
   void WriteToSummaryFile (npaf::RunSummary srs);
@@ -316,7 +316,7 @@ RoutingExperiment::Run (int argc, char **argv)
   uint32_t nNodes = 50; // number of nodes
   uint32_t nSources = 10; // number of source nodes for application traffic (number of sink nodes is the same in this example)
 
-  double simulationDuration = 600.0; // in seconds
+  double simulationDuration = 110.0; // in seconds
   double netStartupTime = 10.0; // [s] time before any application starts sending data
 
   std::string rate ("2048bps"); // application layer data rate
