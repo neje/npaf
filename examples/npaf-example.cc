@@ -46,7 +46,7 @@
 
 using namespace ns3;
 
-NS_LOG_COMPONENT_DEFINE ("NpafMultiRunExample");
+NS_LOG_COMPONENT_DEFINE ("NpafExample");
 
 void
 PrintCurrentTime ()

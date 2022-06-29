@@ -57,7 +57,7 @@ Summary::IterativeAdd (const Summary &s, unsigned iteration)
   e2eDelayMin = (e2eDelayMin * (iteration-1) + s.e2eDelayMin) / iteration;
   e2eDelayMax = (e2eDelayMax * (iteration-1) + s.e2eDelayMax) / iteration;
   e2eDelayAverage = (e2eDelayAverage * (iteration-1) + s.e2eDelayAverage) / iteration;
-  e2eDelayMedianEstinate = (e2eDelayMedianEstinate * (iteration-1) + s.e2eDelayMedianEstinate) / iteration;
+  e2eDelayMedianEstimate = (e2eDelayMedianEstimate * (iteration-1) + s.e2eDelayMedianEstimate) / iteration;
   e2eDelayJitter = (e2eDelayJitter * (iteration-1) + s.e2eDelayJitter) / iteration;
 }
 
@@ -242,7 +242,7 @@ FlowData::Finalize ()
   s.e2eDelayMin = m_scalarData.delayHist.GetMin ();
   s.e2eDelayMax = m_scalarData.delayHist.GetMax ();
   s.e2eDelayAverage = m_scalarData.delayHist.GetMean ();
-  s.e2eDelayMedianEstinate = m_scalarData.delayHist.GetMedianEstimation ();
+  s.e2eDelayMedianEstimate = m_scalarData.delayHist.GetMedianEstimation ();
   s.e2eDelayJitter = m_scalarData.delayHist.GetStdDev ();
 
   if (IsScalarFileWriteEnabled ())
@@ -274,7 +274,7 @@ FlowData::Finalize ()
     out << "E2E delay - Min [ms]," << 1000.0*s.e2eDelayMin << std::endl;
     out << "E2E delay - Max [ms]," << 1000.0*s.e2eDelayMax << std::endl;
     out << "E2E delay - Average [ms]," << 1000.0*s.e2eDelayAverage << std::endl;
-    out << "E2E delay - Median estimate (+/-" << 1000.0 * 0.5 *m_scalarData.delayHist.GetBinWidth () << ") [ms]:," << 1000.0*s.e2eDelayMedianEstinate << std::endl;
+    out << "E2E delay - Median estimate (+/-" << 1000.0 * 0.5 *m_scalarData.delayHist.GetBinWidth () << ") [ms]:," << 1000.0*s.e2eDelayMedianEstimate << std::endl;
     out << "E2E delay - Jitter [ms]," << 1000.0*s.e2eDelayJitter << std::endl;
     out << std::endl;
     out << "Rx," << "First packet [us]:," << m_scalarData.firstPacketReceived.GetMicroSeconds () << std::endl;
@@ -328,16 +328,17 @@ StatsFlows::StatsFlows (uint64_t rngRun, std::string fn, bool scalarFileWriteEna
   // which is used to determine the total amount of
   // data transmitted, and then used to calculate
   // the MAC/PHY overhead beyond the app-data
-  Config::Connect ("/NodeList/*/DeviceList/*/Phy/State/Tx", MakeCallback (&StatsFlows::PhyPacketSent, this));
-  //NodeList/[i]/DeviceList/[i]/$ns3::WifiNetDevice/Phy/$ns3::YansWifiPhy/State
+  //Config::Connect ("/NodeList/*/DeviceList/*/Phy/State/Tx", MakeCallback (&StatsFlows::PhyPacketSent, this));
+  //NodeList/[i]/DeviceList/[i]/$ns3::WifiNetDevice/Phy
+  Config::Connect ("/NodeList/*/DeviceList/*/$ns3::WifiNetDevice/Phy/PhyTxBegin", MakeCallback (&StatsFlows::PhyPacketSent, this));
 }
  
 
 
 void
-StatsFlows::PhyPacketSent (std::string context, Ptr<const Packet> packet, WifiMode mode, WifiPreamble preamble, uint8_t txPower)
+StatsFlows::PhyPacketSent (std::string context, Ptr<const Packet> packet, double txPowerW)
 {
-  NS_LOG_FUNCTION (this << context << packet << "PHYTX mode=" << mode );
+  NS_LOG_FUNCTION (this << context << packet);
   m_allPacketsStats.phyTxPkts++;
   uint32_t pktSize = packet->GetSize ();
   m_allPacketsStats.phyTxBytes += pktSize;
@@ -478,7 +479,7 @@ StatsFlows::Finalize ()
   srs.aap.e2eDelayMin = m_allPacketsStats.delayHist.GetMin ();
   srs.aap.e2eDelayMax = m_allPacketsStats.delayHist.GetMax ();
   srs.aap.e2eDelayAverage = m_allPacketsStats.delayHist.GetMean ();
-  srs.aap.e2eDelayMedianEstinate = m_allPacketsStats.delayHist.GetMedianEstimation ();
+  srs.aap.e2eDelayMedianEstimate = m_allPacketsStats.delayHist.GetMedianEstimation ();
   srs.aap.e2eDelayJitter = m_allPacketsStats.delayHist.GetStdDev ();
 
   // All flows average summary
@@ -513,7 +514,7 @@ StatsFlows::Finalize ()
       out << "E2E delay - Min [ms]:," << 1000.0*srs.aaf.e2eDelayMin << "," << 1000.0*srs.aap.e2eDelayMin << std::endl;
       out << "E2E delay - Max [ms]:," << 1000.0*srs.aaf.e2eDelayMax << "," << 1000.0*srs.aap.e2eDelayMax << std::endl;
       out << "E2E delay - Average [ms]:," << 1000.0*srs.aaf.e2eDelayAverage << "," << 1000.0*srs.aap.e2eDelayAverage << std::endl;
-      out << "E2E delay - Median estimate (+/-" << 1000.0 * 0.5 *m_allPacketsStats.delayHist.GetBinWidth () << ") [ms]:," << 1000.0*srs.aaf.e2eDelayMedianEstinate << "," << 1000.0*srs.aap.e2eDelayMedianEstinate << std::endl;
+      out << "E2E delay - Median estimate (+/-" << 1000.0 * 0.5 *m_allPacketsStats.delayHist.GetBinWidth () << ") [ms]:," << 1000.0*srs.aaf.e2eDelayMedianEstimate << "," << 1000.0*srs.aap.e2eDelayMedianEstimate << std::endl;
       out << "E2E delay - Jitter [ms]:," << 1000.0*srs.aaf.e2eDelayJitter << "," << 1000.0*srs.aap.e2eDelayJitter << std::endl;
       out << std::endl;
       out.close ();

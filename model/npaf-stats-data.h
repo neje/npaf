@@ -36,8 +36,7 @@
 #include "ns3/inet6-socket-address.h"
 #include "ns3/npaf-stats-hist.h"
 #include "ns3/log.h"
-#include "ns3/wifi-mode.h"
-#include "ns3/wifi-preamble.h"
+#include "ns3/wifi-phy.h"
 
 namespace ns3 {
 
@@ -60,7 +59,7 @@ struct Summary
     e2eDelayMin (0),
     e2eDelayMax (0),
     e2eDelayAverage (0),
-    e2eDelayMedianEstinate (0),
+    e2eDelayMedianEstimate (0),
     e2eDelayJitter (0)
   {};
   void IterativeAdd (const Summary &s, unsigned iteration);
@@ -76,7 +75,7 @@ struct Summary
   double e2eDelayMin;
   double e2eDelayMax;
   double e2eDelayAverage;
-  double e2eDelayMedianEstinate;
+  double e2eDelayMedianEstimate;
   double e2eDelayJitter;
 };
 
@@ -277,7 +276,7 @@ public:
   StatsFlows (uint64_t rngRun, std::string fn = "noname", bool scalarFileWriteEnable = false, bool vectorFileWriteEnable = false);
   void PacketReceived (Ptr<const Packet> packet, uint32_t sinkNodeId, uint32_t sinkAppId, Address sourceAddr);
   void PacketSent (Ptr<const Packet> packet);
-  void PhyPacketSent (std::string context, Ptr<const Packet> packet, WifiMode mode, WifiPreamble preamble, uint8_t txPower);
+  void PhyPacketSent (std::string context, Ptr<const Packet> packet, double txPowerW);
 
   RunSummary Finalize ();
 
