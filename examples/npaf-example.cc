@@ -444,7 +444,7 @@ RoutingExperiment::Run (int argc, char **argv)
   //---------------------------------------------
 
   // Set the wifi NICs we want
-  YansWifiPhyHelper wifiPhy =  YansWifiPhyHelper::Default ();
+  YansWifiPhyHelper wifiPhy;
   wifiPhy.SetChannel (channel);
   // ns-3 supports generate a pcap trace
   wifiPhy.SetPcapDataLinkType (WifiPhyHelper::DLT_IEEE802_11);
